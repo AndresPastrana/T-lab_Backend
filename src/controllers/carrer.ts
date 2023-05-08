@@ -3,7 +3,7 @@ import { HydratedDocument } from "mongoose";
 import { CarrerModel, ICarreer } from "../models/career";
 
 // TODO: Fix this unused param
-export const getAllCareers = async (undefined: any, resp: Response) => {
+export const getAllCareers = async (_: Request, resp: Response) => {
   try {
     // A list of Carrers Documents
     const carrers = await CarrerModel.find();

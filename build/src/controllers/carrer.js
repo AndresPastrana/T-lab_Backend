@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateCareer = exports.deleteCareer = exports.insertCareer = exports.getAllCareers = void 0;
 const career_1 = require("../models/career");
 // TODO: Fix this unused param
-const getAllCareers = (undefined, resp) => __awaiter(void 0, void 0, void 0, function* () {
+const getAllCareers = (_, resp) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // A list of Carrers Documents
         const carrers = yield career_1.CarrerModel.find();
