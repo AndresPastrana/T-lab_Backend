@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const connection = (env) => {
+const connection = (env: any) => {
   let CDN;
   if (env === "development") {
     CDN = process.env.CDN_DEV_DB;

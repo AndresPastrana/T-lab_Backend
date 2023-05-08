@@ -1,13 +1,16 @@
-const { Router } = require("express");
-const { body, param } = require("express-validator");
-const {
+import { Router } from "express";
+import { body, param } from "express-validator";
+import {
   getAllCareers,
-  deleteCareer,
   insertCareer,
   updateCareer,
-} = require("../controllers/carrer");
+  deleteCareer,
+} from "../controllers/carrer";
+
 const { checkForErrors } = require("../middlewares/checkForErrors");
-const router = new Router();
+
+export const router: Router = Router();
+
 router.get("/", getAllCareers);
 router.post(
   "/",
@@ -28,4 +31,3 @@ router.delete(
   [param("id", "Invalid Mongo id").isMongoId(), checkForErrors],
   deleteCareer
 );
-module.exports = router;

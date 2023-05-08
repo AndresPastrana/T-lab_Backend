@@ -1,4 +1,4 @@
-const { app: expressApp } = require("../src/server");
+const { app: expressApp } = require("../build/src/server");
 const request = require("supertest");
 
 const mongoose = require("mongoose");
