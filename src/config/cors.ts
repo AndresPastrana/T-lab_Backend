@@ -1,6 +1,6 @@
-import { CorsOptions } from "cors";
+import { CorsOptions } from 'cors'
 const CorsConfig: CorsOptions = {
-  origin: "*",
-};
+  origin: '*'
+}
 
-export default CorsConfig;
+export default CorsConfig

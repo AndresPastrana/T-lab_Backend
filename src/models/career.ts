@@ -1,17 +1,17 @@
-import { Schema, model } from "mongoose";
+import { Schema, model } from 'mongoose'
 
 interface ICarreer {
-  name: String;
+  name: String
 }
 
 const CareerSchema = new Schema<ICarreer>({
   name: {
-    type: "String",
+    type: 'String',
     required: true,
-    unique: true,
-  },
-});
+    unique: true
+  }
+})
 
-const CarrerModel = model<ICarreer>("career", CareerSchema);
+const CarrerModel = model<ICarreer>('career', CareerSchema)
 
-export { CarrerModel, ICarreer };
+export { CarrerModel, ICarreer }

@@ -16,13 +16,14 @@ const getAllCareers = (_, resp) => __awaiter(void 0, void 0, void 0, function* (
     try {
         // A list of Carrers Documents
         const carrers = yield career_1.CarrerModel.find();
-        return resp.json({
+        resp.json({
             ok: true,
-            data: carrers,
+            data: carrers
         });
+        return;
     }
     catch (error) {
-        return resp.json({ error });
+        resp.json({ error });
     }
 });
 exports.getAllCareers = getAllCareers;
@@ -31,11 +32,11 @@ const insertCareer = (req, resp) => __awaiter(void 0, void 0, void 0, function* 
         const { body } = req;
         const newCarrer = new career_1.CarrerModel(body);
         yield newCarrer.save();
-        return resp.status(201).json({ ok: true, data: newCarrer });
+        resp.status(201).json({ ok: true, data: newCarrer });
     }
     catch (error) {
         console.log(error);
-        return resp.status(500).json({ ok: false });
+        resp.status(500).json({ ok: false });
     }
     // try {
     //   const inserted = CarrerModel.insertOne(body);
@@ -47,10 +48,10 @@ const deleteCareer = (req, resp) => __awaiter(void 0, void 0, void 0, function* 
     try {
         const { id: _id } = req.params;
         const deletedElement = yield career_1.CarrerModel.findByIdAndDelete(_id);
-        return resp.json({ ok: true, data: deletedElement });
+        resp.json({ ok: true, data: deletedElement });
     }
     catch (error) {
-        return resp.status(500).json({ ok: false, data: null, error });
+        resp.status(500).json({ ok: false, data: null, error });
     }
 });
 exports.deleteCareer = deleteCareer;
@@ -59,10 +60,11 @@ const updateCareer = (req, resp) => __awaiter(void 0, void 0, void 0, function* 
         const { body, params } = req;
         const { id: _id } = params;
         yield career_1.CarrerModel.updateOne({ _id }, body);
-        return resp.status(201).json({ ok: true, data: Object.assign({ _id }, body) });
+        resp.status(201).json({ ok: true, data: Object.assign({ _id }, body) });
+        return;
     }
     catch (error) {
-        return resp.status(500);
+        resp.status(500);
     }
 });
 exports.updateCareer = updateCareer;

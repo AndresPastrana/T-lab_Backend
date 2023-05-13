@@ -1,33 +1,32 @@
-import { Router } from "express";
-import { body, param } from "express-validator";
+import { Router } from 'express'
+import { body, param } from 'express-validator'
 import {
   getAllCareers,
   insertCareer,
   updateCareer,
-  deleteCareer,
-} from "../controllers/carrer";
+  deleteCareer
+} from '../controllers/carrer'
+import { checkForErrors } from '../middlewares/checkForErrors'
 
-const { checkForErrors } = require("../middlewares/checkForErrors");
+export const router = Router()
 
-export const router: Router = Router();
-
-router.get("/", getAllCareers);
+router.get('/', getAllCareers)
 router.post(
-  "/",
+  '/',
   [
-    body("name", "name is required").notEmpty(),
-    body("name", "name should be a string").isString(),
-    checkForErrors,
+    body('name', 'name is required').notEmpty(),
+    body('name', 'name should be a string').isString(),
+    checkForErrors
   ],
   insertCareer
-);
+)
 router.put(
-  "/:id",
-  [param("id", "Not a valid MongoId").isMongoId(), checkForErrors],
+  '/:id',
+  [param('id', 'Not a valid MongoId').isMongoId(), checkForErrors],
   updateCareer
-);
+)
 router.delete(
-  "/:id",
-  [param("id", "Invalid Mongo id").isMongoId(), checkForErrors],
+  '/:id',
+  [param('id', 'Invalid Mongo id').isMongoId(), checkForErrors],
   deleteCareer
-);
+)
