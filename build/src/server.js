@@ -21,7 +21,8 @@ const index_1 = require("./routes/index");
 const cors_2 = __importDefault(require("./config/cors"));
 require('dotenv').config();
 const globalRoutes = {
-    career: '/api/career'
+    career: '/api/career',
+    geographical: '/api/geographical'
 };
 const app = (0, express_1.default)();
 exports.app = app;
@@ -35,6 +36,7 @@ if (app.get('env') === 'development') {
 }
 // ROUTES
 app.use(globalRoutes.career, index_1.CarreerRouter);
+app.use(globalRoutes.geographical, index_1.GeographicalRouter);
 const server = http_1.default.createServer(app);
 exports.server = server;
 // Server events handlers

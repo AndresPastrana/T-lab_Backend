@@ -2,13 +2,14 @@ import express, { Express } from 'express'
 import http, { Server } from 'http'
 import cors from 'cors'
 import morgan from 'morgan'
-import { CarreerRouter } from './routes/index'
+import { CarreerRouter, GeographicalRouter } from './routes/index'
 import CorsConfig from './config/cors'
 
 require('dotenv').config()
 
 const globalRoutes = {
-  career: '/api/career'
+  career: '/api/career',
+  geographical: '/api/geographical'
 }
 
 const app: Express = express()
@@ -25,7 +26,8 @@ if (app.get('env') === 'development') {
 }
 
 // ROUTES
-app.use(globalRoutes.career, CarreerRouter)
+app.use(globalRoutes.career, CarreerRouter);
+app.use(globalRoutes.geographical, GeographicalRouter);
 
 const server: Server = http.createServer(app)
 

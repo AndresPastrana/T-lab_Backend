@@ -11,14 +11,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateCareer = exports.deleteCareer = exports.insertCareer = exports.getAllCareers = void 0;
 const career_1 = require("../models/career");
-// TODO: Fix this unused param
+// Return a list of type Carreer in the body of the response
 const getAllCareers = (_, resp) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // A list of Carrers Documents
         const carrers = yield career_1.CarrerModel.find();
         resp.json({
             ok: true,
-            data: carrers
+            data: carrers,
         });
         return;
     }
@@ -27,6 +27,7 @@ const getAllCareers = (_, resp) => __awaiter(void 0, void 0, void 0, function* (
     }
 });
 exports.getAllCareers = getAllCareers;
+// Returns the inserted  carreer in the body of the response or null
 const insertCareer = (req, resp) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { body } = req;
@@ -44,6 +45,7 @@ const insertCareer = (req, resp) => __awaiter(void 0, void 0, void 0, function* 
     // } catch (error) {}
 });
 exports.insertCareer = insertCareer;
+// Returns the deleted carreer in the body of the response or null
 const deleteCareer = (req, resp) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id: _id } = req.params;
@@ -55,6 +57,7 @@ const deleteCareer = (req, resp) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.deleteCareer = deleteCareer;
+// Returns the udapted carreer in the body of the response or null
 const updateCareer = (req, resp) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { body, params } = req;
