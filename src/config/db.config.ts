@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-export const connection = async (env: string): Promise<typeof mongoose> => {
+export const dbConect =  (env: string)=> {
   let CDN = ''
 
   switch (env) {
@@ -36,11 +36,10 @@ export const connection = async (env: string): Promise<typeof mongoose> => {
   }
 
   // Initial conection
-
-  await mongoose.connect(CDN, {
+      return mongoose.connect(CDN, {
     autoCreate: true,
     bufferCommands: true
   })
 
-  return mongoose
+ 
 }

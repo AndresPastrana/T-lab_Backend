@@ -6,9 +6,9 @@ export interface Person {
   ci: string;
 }
 
-export interface Profesor extends Person {}
+export type Profesor = Person
 
-export interface Student extends Person {}
+export type Student = Person
 
 export interface ICountry {
   name: string;

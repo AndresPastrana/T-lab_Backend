@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose'
 
 interface ICarreer {
-  name: String
+  name: string
 }
 
 const CareerSchema = new Schema<ICarreer>({
