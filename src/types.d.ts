@@ -9,7 +9,7 @@ export type TeachingCategory =
   | "auxiliar"
   | "titular";
 export type ScientificCategory = "ing" | "lic" | "msc" | "drc";
-export type ProcesState = "open" | "close";
+export type Status = "open" | "close";
 
 export type Career = {
   name: string;
@@ -31,7 +31,6 @@ interface DefenseMetatda {
   place: string;
   requirements: Array<string>;
   selectedStudents: Array<Types.ObjectId>;
-  state: ProcesState;
 }
 
 // interface PreDefense extends DefenseMetatda {

@@ -1,4 +1,4 @@
 import { CarrerModel} from "./career";
 import { CountryModel, StateModel,CityModel } from "./geographical";
-
-export {CarrerModel,CountryModel,StateModel,CityModel}
+import { CursoModel } from "./curso";
+export {CarrerModel,CountryModel,StateModel,CityModel,CursoModel}

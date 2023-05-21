@@ -1,17 +1,18 @@
-import { dbConect } from "./config/db.config";
 import dotenv from "dotenv";
+dotenv.config();
+import { dbConect } from "./config/db.config";
 import express, { Express } from "express";
 import http, { Server } from "http";
 import cors from "cors";
 import morgan from "morgan";
-import { CarreerRouter, GeographicalRouter } from "./routes/index";
-import CorsConfig from "./config/cors";
 import mongoose from "mongoose";
-dotenv.config();
+import { CarreerRouter, CursoRouter, GeographicalRouter } from "./routes/index";
+import CorsConfig from "./config/cors";
 
 const globalRoutes = {
   career: "/api/career",
   geographical: "/api/geographical",
+  course: "/api/course"
 };
 
 const app: Express = express();
@@ -28,7 +29,7 @@ if (app.get("env") === "development") {
 // ROUTES
 app.use(globalRoutes.career, CarreerRouter);
 app.use(globalRoutes.geographical, GeographicalRouter);
-
+app.use(globalRoutes.course,CursoRouter);
 const server: Server = http.createServer(app);
 
 // Server events handlers

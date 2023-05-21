@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import { HydratedDocument } from "mongoose";
-import { CarrerModel, ICarreer } from "../models/career";
+import { CarrerModel} from "../models/career";
 
 // Return a list of type Carreer in the body of the response
 export const getAllCareers = async (_: Request, resp: Response) => {
@@ -20,10 +19,9 @@ export const getAllCareers = async (_: Request, resp: Response) => {
 export const insertCareer = async (req: Request, resp: Response) => {
   try {
     const { body } = req;
-
-    const newCarrer: HydratedDocument<ICarreer> = new CarrerModel(body);
-    await newCarrer.save();
-    resp.status(201).json({ ok: true, data: newCarrer });
+ console.log(body);
+ 
+    resp.status(201).json({ ok: true });
   } catch (error) {
     console.log(error);
     resp.status(500).json({ ok: false });
