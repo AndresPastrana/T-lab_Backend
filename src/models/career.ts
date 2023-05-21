@@ -1,10 +1,9 @@
 import { Schema, model } from 'mongoose'
+import { Career } from '../types'
 
-interface ICarreer {
-  name: string
-}
 
-const CareerSchema = new Schema<ICarreer>({
+
+const CareerSchema = new Schema<Career>({
   name: {
     type: 'String',
     required: true,
@@ -12,6 +11,6 @@ const CareerSchema = new Schema<ICarreer>({
   }
 })
 
-const CarrerModel = model<ICarreer>('career', CareerSchema)
+const CarrerModel = model<Career>('career', CareerSchema)
 
-export { CarrerModel, ICarreer }
+export { CarrerModel}

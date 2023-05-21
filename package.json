@@ -9,6 +9,7 @@
     "prestart": "yarn run build",
     "start": "node build/index.js",
     "dev": "nodemon",
+    "push-main" :"git push origin main", 
     "lint": "eslint ./src --ext .ts  --fix",
     "test": "jest --testTimeout=5000 --coverage --watchAll"
   },
